@@ -11,7 +11,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
-                if key != __class__.__name__:
+                if key != "__class__":
                     setattr(self, key, value)
             a_format = "%Y-%m-%dT%H:%M:%S.%f"
             self.created_at = datetime.strptime(self.created_at, a_format)

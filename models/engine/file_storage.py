@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 '''class that  serializes and deserializes'''
 
-
-import json
 from os import path
+import json
+
 
 
 class FileStorage:
@@ -30,18 +30,17 @@ class FileStorage:
         dic = {}
         for key, val in self.__objects.items():
             dic[key] = val.to_dict()
-        with open(self.__file_path, mode='w') as jsonfile:
-            json.dump(dic, jsonfile)
+        with open(self.__file_path, mode='w') as file:
+            json.dump(dic, file)
 
     '''Public instance methods'''
     def reload(self):
         '''deserializes the JSON file to __objects '''
         from ..base_model import BaseModel
-
-        try:
+        if path.exists(self.__file_path):
             with open(self.__file_path, mode='r') as file:
                 file_objects = json.load(file)
-            for key, value in file_objects:
-                self.__objects[key] = eval(value["__class__"])(**value)
-        except Exception:
-            return
+            for key, value in file_objects.items():
+                suma = eval(value["__class__"])(**value)
+                self.__objects[key] = suma
+
