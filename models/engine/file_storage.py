@@ -3,8 +3,6 @@
 
 
 import json
-import os.path
-
 
 class FileStorage:
     '''Private class attributes'''
@@ -28,7 +26,7 @@ class FileStorage:
     '''Public instance methods'''
     def save(self):
         '''serializes __objects to the JSON file '''
-        dic = []
+        dic = {}
         for key, val in self.__objects.items():
             dic[key] = val.to_dict()
             with open(self.__file_path, 'w') as jsonfile:
@@ -37,9 +35,10 @@ class FileStorage:
     '''Public instance methods'''
     def reload(self):
         '''deserializes the JSON file to __objects '''
-        if os.path.isfile(self.__file_path):
-            with open(self.__file_path, 'r') as f:
-                load = json.load(f)
-                for key, val in load.items():
-                    suma = eval(val["__class__"](**val))
-                    FileStorage.__objects[key] = suma
+        try:
+            with open(self.__file_path, mode='r') as file:
+                file_objects = json.load(file).items()
+                for key, value in file_objects:
+                    eval(value["__class__"])(**value)
+        except Exception:
+            return

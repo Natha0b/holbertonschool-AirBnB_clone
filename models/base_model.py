@@ -36,7 +36,7 @@ class BaseModel:
         """returns a dictionary containing all keys/values"""
         dic_now = dict()
         for (key, value) in (self.__dict__).items():
-            dic_now["__clas"] = self.__class__.__name__
+            dic_now["__class"] = self.__class__.__name__
             if isinstance(value, datetime):
                 dic_now[key] = value.isoformat()
             else:
