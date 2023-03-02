@@ -6,6 +6,8 @@ from datetime import datetime
 
 class Test_file_strorage(unittest.TestCase):
 
+    def base_model(self):
+        pass
 
 
 if __name__ == "__main__":
