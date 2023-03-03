@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class Reiew(BaseModel):
+class Review(BaseModel):
     '''string - empty string'''
     place_id = str()
     user_id = str()
