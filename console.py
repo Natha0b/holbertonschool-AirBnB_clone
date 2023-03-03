@@ -84,7 +84,6 @@ class HBNBCommand(cmd.Cmd):
             return
         storage.all().pop(instance)
         storage.save()
-    
 
     def do_all(self, line):
         '''Prints all string representation of all instances'''

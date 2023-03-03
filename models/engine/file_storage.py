@@ -11,7 +11,6 @@ from models.state import State
 from models.user import User
 
 
-
 class FileStorage:
     '''Private class attributes'''
     '''string'''
@@ -42,12 +41,9 @@ class FileStorage:
     '''Public instance methods'''
     def reload(self):
         '''deserializes the JSON file to __objects '''
-        from ..base_model import BaseModel
-        from ..user import User
         if path.exists(self.__file_path):
             with open(self.__file_path, mode='r') as file:
                 file_objects = json.load(file)
             for key, value in file_objects.items():
                 suma = eval(value["__class__"])(**value)
                 self.__objects[key] = suma
-
