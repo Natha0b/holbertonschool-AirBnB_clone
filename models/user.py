@@ -4,9 +4,7 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    '''ensure that the objects are properly initialized.'''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+
     '''string - empty string'''
     email = str()
     password = str()
