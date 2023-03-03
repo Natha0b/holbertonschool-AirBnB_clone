@@ -3,6 +3,7 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+import os
 
 
 class TestBaseModel(unittest.TestCase):
@@ -14,12 +15,22 @@ class TestBaseModel(unittest.TestCase):
         self.obj.created_at = datetime.now()
         self.obj.updated_at = datetime.now()
 
+    @classmethod
+    def tearDownClass(cls):
+        '''remove file'''
+        try:
+            os.remove("file.json")
+            os.rename("test_file.json", "file.json")
+        except Exception:
+            pass
+
     def test_save_method(self):
-        '''check if the attribute is updated.'''
-        initial_updated_at = self.obj.updated_at
-        self.obj.save()
-        new_updated_at = self.obj.updated_at
-        self.assertGreater(new_updated_at, initial_updated_at)
+        """Test save method"""
+        base1 = BaseModel()
+        update = base1.updated_at
+        base1.save()
+        self.assertLess(update, base1.updated_at)
+        self.assertTrue(os.path.exists("file.json"))
 
     def test_id(self):
         '''Check id'''
@@ -37,16 +48,17 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict(self):
         '''check the dict'''
-        mydict = { "id": "test_id",
-            "created_at": self.obj.created_at.isoformat(),
-            "updated_at": self.obj.updated_at.isoformat(),
-            "__class__": "BaseModel"
-            }
+        mydict = {"id": "test_id",
+                  "created_at": self.obj.created_at.isoformat(),
+                  "updated_at": self.obj.updated_at.isoformat(),
+                  "__class__": "BaseModel"
+                  }
         self.assertDictEqual(mydict, self.obj.to_dict())
 
     def test_str(self):
         """test str"""
-        string = f"[{self.obj.__class__.__name__}] ({self.obj.id}) {self.obj.__dict__}"
+        aux = self.obj.__class__.__name__
+        string = f"[{aux}] ({self.obj.id}) {self.obj.__dict__}"
         self.assertEqual(string, self.obj.__str__())
 
 
