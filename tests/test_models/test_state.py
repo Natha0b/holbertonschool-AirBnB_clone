@@ -9,13 +9,13 @@ class TestState(unittest.TestCase):
 
     def test_create_state(self):
         '''checks if an instance can be created'''
-        state = state()
-        self.assertIsInstance(state, state)
+        state = State()
+        self.assertIsInstance(state, State)
 
     def test_state_attributes(self):
         '''checks if the instance of the State
         class has the required attributes.'''
-        state = state()
+        state = State()
         self.assertTrue(hasattr(state, 'id'))
         self.assertTrue(hasattr(state, 'created_at'))
         self.assertTrue(hasattr(state, 'updated_at'))
@@ -24,7 +24,7 @@ class TestState(unittest.TestCase):
     def test_state_name(self):
         '''checks if the name attribute
         is correctly set to an empty string.'''
-        state = state()
+        state =State()
         self.assertEqual(state.name, '')
 
 

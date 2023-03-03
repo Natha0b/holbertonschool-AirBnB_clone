@@ -9,8 +9,8 @@ class TestPlace(unittest.TestCase):
 
     def test_place_creation(self):
         '''check the attributes of a particular class'''
-        place = place()
-        self.assertIsInstance(place, place)
+        place = Place()
+        self.assertIsInstance(place, Place)
 
 
 if __name__ == '__main__':

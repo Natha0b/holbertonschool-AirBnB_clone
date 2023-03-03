@@ -9,8 +9,8 @@ class TestReview(unittest.TestCase):
 
     def test_review_creation(self):
         '''check the attributes of a particular class'''
-        review = review()
-        self.assertIsInstance(review, review)
+        review = Review()
+        self.assertIsInstance(review, Review)
 
 
 if __name__ == '__main__':
