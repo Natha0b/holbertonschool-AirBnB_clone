@@ -11,7 +11,7 @@ from models.state import State
 from models.user import User
 
 
-list = ["User", "BaseModel", "State", "Amenity", "Place", "Review"]
+list = ["User", "BaseModel", "State", "Amenity", "Place", "Review", "City"]
 
 
 class HBNBCommand(cmd.Cmd):
