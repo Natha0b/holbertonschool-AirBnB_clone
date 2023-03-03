@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
 
         instance = args[0] + "." + args[1]
         if instance in storage.all():
-            del storage.all()[instance]
+            storage.all().pop(instance)
             storage.save()
             return
         print("** no instance found **")
