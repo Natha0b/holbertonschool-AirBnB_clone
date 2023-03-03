@@ -1,6 +1,6 @@
 # **AirBnB clone - The console**👩‍💻
 
-<img align="center" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230303%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230303T202321Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8867515963b2ee58b82bcd269e30208d6575528c87689f855166498b900b6f3c" /></a>
+<img align="center" src="https://miro.medium.com/max/1400/0*NChTo-XqLOxLabIW" /></a>
 
 ## 	DESCRIPTION PROYECT✍
  The project aims to deploy a server on a simple copy of the** AirBnB** website. Keeping in mind that some of the features will be implemented, in order to cover all the fundamental concepts of the higher level programming path.
