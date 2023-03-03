@@ -15,6 +15,15 @@ class TestBaseModel(unittest.TestCase):
         self.obj.created_at = datetime.now()
         self.obj.updated_at = datetime.now()
 
+    @classmethod
+    def tearDownClass(cls):
+        '''remove file'''
+        try:
+            os.remove("file.json")
+            os.rename("test_file.json", "file.json")
+        except Exception:
+            pass
+
     def test_save_method(self):
         """Test save method"""
         base1 = BaseModel()
