@@ -36,9 +36,10 @@ class FileStorage:
     def reload(self):
         '''deserializes the JSON file to __objects '''
         from ..base_model import BaseModel
-        if path.exists(self.__file_path):
+        try:
             with open(self.__file_path, mode='r') as file:
                 file_objects = json.load(file)
             for key, value in file_objects.items():
-                suma = eval(value["__class__"])(**value)
-                self.__objects[key] = suma
+               self.__objects[key] = BaseModel(**value)
+        except FileNotFoundError:
+            pass
