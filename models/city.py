@@ -3,9 +3,7 @@
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
+class City(BaseModel):
     '''string - empty string'''
-    email = str()
-    password = str()
-    first_name = str()
-    last_name = str()
+    name = str()
+    state_id = str()

@@ -3,9 +3,8 @@
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
+class Reiew(BaseModel):
     '''string - empty string'''
-    email = str()
-    password = str()
-    first_name = str()
-    last_name = str()
+    place_id = str()
+    user_id = str()
+    text = str()
