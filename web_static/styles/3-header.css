@@ -4,15 +4,16 @@ header {
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    align-items: center;
     }
 
 .logo-header {
     background-image: url("../images/logo.png");
-    height: 60px;
-    width: 142px;
-    position: absolute;
-    left: 20px
+    margin-left: 20px;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: block;
+
 }
   
